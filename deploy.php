@@ -103,6 +103,7 @@ task('deploy', [
     'deploy:update_code',
     'deploy:shared',
     'deploy:vendors',
+    'deploy:shared',
     'deploy:clear_paths',
     // 'deploy:writable',
     'deploy:magento',
