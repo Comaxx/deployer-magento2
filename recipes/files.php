@@ -14,9 +14,9 @@ task('magento:compile', function () {
 desc('Deploy assets');
 task('magento:deploy:assets', function () {
     if (get('is_production')) {
-        run("cd {{release_path}}{{magento_dir}} && {{magento_bin}} setup:static-content:deploy {{languages}} {{verbose}}");
+        run("cd {{release_path}}{{magento_dir}} && {{magento_bin}} setup:static-content:deploy {{languages}} --jobs=5 {{verbose}}");
     } elseif (get('compile_UAT')) {
-        run("cd {{release_path}}{{magento_dir}} && {{magento_bin}} setup:static-content:deploy {{languages}} --force {{verbose}}");
+        run("cd {{release_path}}{{magento_dir}} && {{magento_bin}} setup:static-content:deploy {{languages}} --jobs=5 --force {{verbose}}");
     } else {
         write("Not running the Static Content deploy for UAT");
     }
